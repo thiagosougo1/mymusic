@@ -1,52 +1,45 @@
 # My Music 2022
 
->API responsável por gerenciar as musicas favoritas do usuário.
-
+> API responsible for managing user's favorite songs.
 ---
 ## 🏆 Meta
 
-Desenvolvido por OS SIMPSONS (GRUPO 4)
+Developed by Thiago Souza Gomes
 
 
 ---
 # 🖥️ Índice
 
-- [Escopo](#-Escopo)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Como rodar na sua máquina](#-como-baixar-o-projeto)
+- [Scope](#-Scope)
+- [Technologies used](#-technologies-used)
+- [How to use it](#-how-to-use-it)
 
 ---
 
-## Escopo
+## Scope
 
-● Permitir o usuário buscar novas músicas:
-1. O serviço deve validar se o usuário informou ao menos 2 caracteres, retornando um HTTP 400
-   caso a consulta tenha menos de 2 caracteres.
-2. A busca deve ser realizada através do nome de artista e nome da música.
-3. A busca por música não deve ser case sensitive.
-4. A busca deve retornar valores contendo o filtro, não necessitando de ser informado o nome
-   completo de música ou artista.
-5. O retorno deve estar ordenado pelo nome do artista e depois pelo nome da música.
+● Allow user to search for new music:
+1. The service must validate that the user has entered at least 2 characters, returning an HTTP 400 if the query has less than 2 characters.
+2. The search must be performed by artist name and song name.
+3. Music search should not be case sensitive.
+4. The search must return values containing the filter, not needing to inform the full name of the song or artist.
+5. The return must be sorted by the artist's name and then by the song's name.
 
-● Permitir adicionar as músicas favoritas do usuário na playlist:
-1. Deve receber um request contendo o identificador da música e o identificador da playlist.
-2. Deve validar se o identificador da música e o identificador da playlist existem.
+● Allow to add user's favorite songs to playlist:
+1. It must receive a request containing the song identifier and the playlist identifier.
+2. Must validate that the song identifier and playlist identifier exist.
 
-● Permitir o usuário remover músicas de sua playlist:
-3. Deve receber um request contendo o identificador da música e o identificador da playlist.
-4. Deve validar se o identificador da música e o identificador da playlist existem.
+● Allow to add user's favorite songs to playlist:
+1. It must receive a request containing the song identifier and the playlist identifier.
+2. Must validate that the song identifier and playlist identifier exist.
 
-Todos os endpoints devem possuir uma camada de segurança para proteger o dominio de dados. Para implementar
-essa segurança os endpoints criados devem exigir que as requisições recebidas possuam o header "authorization",
-contendo um token válido para responder a requisição. Para realizar a criação e geração do token, utilizar o serviço
-disponbilizado junto com estrutura do projeto: token-provider-0.0.1-SNAPSHOT.jar.
+All endpoints must have a layer of security to protect the data domain. to implement his security, the endpoints created must require that the requests received have the "authorization" header, containing a valid token to respond to the request. To create and generate the token, use the service
+available along with project structure: token-provider-0.0.1-SNAPSHOT.jar.
 
 
+## 🚀 Technologies used:
 
-
-## 🚀 Tecnologias utilizadas
-
-O projeto foi desenvolvido utilizando:
+The project was developed using:
 
 - JDK 11
 - Maven
@@ -60,36 +53,30 @@ O projeto foi desenvolvido utilizando:
 - Microservice
 
 ---
-Acesse a arquitetura do projeto por este [LINK](https://excalidraw.com/#json=EwD3zImwi9fLVGrjz8Unw,CvPYR7BfIL-miljjW-bzkA
-)
 
----
+## 🧑‍💻 How to use it
 
-## 🧑‍💻 Como rodar na sua máquina
-
-- Clone o projeto que consta nesse repositório No terminal rode o seguinte comando:
+- Clone the project contained in this repository In the terminal, run the following command:
 ```sh
 mvn clean install
 ```
 
-- Rode a classe main do projeto SummitBootcampApplication
+- Run the main class of the project: SummitBootcampApplication
 
+- To test the endpoints use the documentation as a base.
+  Acess [Swagger](http://localhost:8000/swagger-ui.html)
+  or [aqui](http://localhost:8000/swagger-ui.html)
 
-- Para testar os endpoints utilize a documentação como base.
-  Acesse [Swagger](http://localhost:8000/swagger-ui.html)
-  ou [aqui](http://localhost:8000/swagger-ui.html)
-
-
-- Para acessar a URL base do sistema, clique [aqui](http://localhost:8000/swagger-ui.html)
+- To access the base URL of the system, click[aqui](http://localhost:8000/swagger-ui.html)
 
 
 ### token-provider
 
-Baixar o .jar a partir do link a seguir para compilar a aplicação de token
+Download the .jar from the following link to compile the token application
 
 https://drive.google.com/file/d/17weBxIxAE0P1yimKTqBOfocIFi1VMkZQ/view?usp=sharing
 
-Para criação de token válidos utilizar o endpoint a seguir:
+To create valid tokens, use the following endpoint:
 
 ```
 ENDPOINT: /api/v1/token
@@ -106,8 +93,7 @@ RETORNO: 201 Created
 }
 ```
 
-Para validação de token utilizar o endpoint a seguir:
-
+For token validation use the following endpoint:
 
 ```
 ENDPOINT: /api/v1/token/authorizer
@@ -125,20 +111,20 @@ RETORNO: 201 Created
 }
 ```
 
-# Banco de dados
+# Database
 
-Para testar o banco de dados utilize os seguintes passos:
+To test the database use the following steps:
 
-Para auxiliar o desenvolvimento do API, a estrutura inicial conta com uma base de dados pré-definida e populada
+To help the development of the API, the initial structure has a pre-defined and populated database.
 
-Modelagem:
+Modeling:
 <div align="center"><img src="https://i.imgur.com/yfMGrur.png" title="source:modelagem imgur" /></div>
 
 
-Atenção:
-Os campos Id que utilizam GUID mapear como string devido à complexidade na compatibilidade com o UUID nativo do Java.
+Attention:
+Id fields using GUID map to string due to complexity in compatibility with Java's native UUID.
 
-Dica:
-Não é necessário, porém é possível utilizar uma ferramenta para abrir e visualizar o arquivo MyMusic.db de maneira mais fácil, como:
+Tip:
+It is not necessary, but it is possible to use a tool to open and view the MyMusic.db file in an easier way, such as:
 
 https://sqlitestudio.pl

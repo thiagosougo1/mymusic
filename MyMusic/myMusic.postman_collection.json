@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "0cf9e82d-050b-4bce-8706-669a83ae43da",
+		"name": "myMusic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22521993"
+	},
+	"item": [
+		{
+			"name": "Api da Cami",
+			"item": [
+				{
+					"name": "api token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"data\": {\n        \"name\": \"joao\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api token authorizer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"data\": {\n        \"name\": \"joao\",\n        \"token\":\"FPkPjlSOieIfWBDyTKAiz57uhlNy7JgGRoNTAZ8cgkXcdmAG0OshNnX1rUwIPfd+5Xk339d67IGXqKDM25QSSA==\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/token/authorizer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"token",
+								"authorizer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddMusicToPlaylist",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"fce6c7a6-8318-428d-9fd2-08bb9e948ba9\",\n    \"name\": \"I Cry Instead\",\n    \"artist\": {\n        \"id\": \"32844fdd-bb76-4c0a-9627-e34ddc9fd892\",\n        \"name\": \"The Beatles\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/a39926f4-6acb-4497-884f-d4e5296ef652/musicas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"a39926f4-6acb-4497-884f-d4e5296ef652",
+						"musicas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMusicToPlaylistMusicNoExists",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"a39926f4-6acb-4497-884f-d4e5296ef652\",\n    \"name\": \"Little Queenie\",\n    \"artist\": {\n        \"id\": \"32844fdd-bb76-4c0a-9627-e34ddc9fd892\",\n        \"name\": \"The Beatles\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/a39926f4-6acb-4497-884f-d4e5296ef652/musicas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"a39926f4-6acb-4497-884f-d4e5296ef652",
+						"musicas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMusicToPlaylistPlaylistNoExists",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"283e6fc6-121c-4f84-bce8-29b94b734456\",\n    \"name\": \"Little Queenie\",\n    \"artist\": {\n        \"id\": \"32844fdd-bb76-4c0a-9627-e34ddc9fd892\",\n        \"name\": \"The Beatles\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/32844fdd-bb76-4c0a-9627-e34ddc9fd892/musicas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"32844fdd-bb76-4c0a-9627-e34ddc9fd892",
+						"musicas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMusicToPlaylistAlreadyIncluded",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"283e6fc6-121c-4f84-bce8-29b94b734456\",\n    \"name\": \"Little Queenie\",\n    \"artist\": {\n        \"id\": \"32844fdd-bb76-4c0a-9627-e34ddc9fd892\",\n        \"name\": \"The Beatles\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/a39926f4-6acb-4497-884f-d4e5296ef652/musicas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"a39926f4-6acb-4497-884f-d4e5296ef652",
+						"musicas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMusicToPlaylistExpiredInvalidToken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"283e6fc6-121c-4f84-bce8-29b94b734456\",\n    \"name\": \"Little Queenie\",\n    \"artist\": {\n        \"id\": \"32844fdd-bb76-4c0a-9627-e34ddc9fd892\",\n        \"name\": \"The Beatles\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/a39926f4-6acb-4497-884f-d4e5296ef652/musicas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"a39926f4-6acb-4497-884f-d4e5296ef652",
+						"musicas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"name\": \"ana\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMusic",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/music?name=Prince",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"music"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Prince"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMusicLess3Letters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/music?name=Pr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"music"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Pr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMusicNoExists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/music?name=u3045",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"music"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "u3045"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMusicExpiredInvalidToken",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "ana",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "EwzNLvLflaQZHICBHHd2qZHpSi3CGfavsV80tA7IVZUJnr8YeZ4inRuMJlrj5VIK2bxGpJXcr+DgqafAb8ncdQ==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/music?name=Prince",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"music"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Prince"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest({",
+					"    url:  \"http://localhost:8080/api/v1/token\",",
+					"    method: \"POST\",",
+					"    header: {",
+					"        \"Content-Type\": \"application/json\"",
+					"    },",
+					"    body: JSON.stringify({",
+					"        data: {",
+					"            name: \"ana\"",
+					"        }",
+					"    })",
+					"}, function (err,response) {",
+					"    var arr = new Uint8Array(response.stream)",
+					"    var token = String.fromCharCode.apply(String,arr)",
+					"    pm.environment.set(\"token\",token)",
+					"})"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
